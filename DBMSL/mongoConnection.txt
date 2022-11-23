@@ -1,0 +1,33 @@
+terminal 1 ->
+pip install pymongo
+
+terminal 2 ->
+mongo
+use db
+db.createCollection("data")
+
+terminal 3 ->
+gedit p.py
+
+in p.py ->
+import pymongo
+url = "mongodb://localhost:27017"
+cl=pymongo.MongoClient(url)
+v1=cl.db
+v2=v1.data
+
+#v3={"name":"Pratik","_id":1,"roll":14}
+#v2.insert_one(v3)
+
+#v3={"name":"Pratik"}
+#v2.delete_one(v3)
+
+#v3={"name":"Pratik","_id":1,"roll":14}
+#v4={"$set":{"Name":"Patrix"}}
+#v2.update_one(v3,v4)
+
+terminal 3 ->
+python p.py
+
+terminal 2 ->
+db.data.find()
