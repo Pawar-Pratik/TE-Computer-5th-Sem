@@ -1,0 +1,24 @@
+use db
+
+db.createCollection("employee")
+
+db.employee.insert({name:[{fname:"ABC",lname:"xys"}],cname:"Google",salary:30000,desig:"Developer",
+age:28,exp:[{lang1:"java",lang2:"sql"}],dob:"27-may-2003",eid:"abc@mail",cont:123456,addr:[{paddr:"Nashik",
+laddr:"Pune"}]})
+
+
+db.employee.find({desig:"programmer",salary:{$gt:30000}})
+
+db.employee.update({desig:"tester",cname:"TCS"},{$set:{age:25}},{upsert:true})
+
+db.employee.find({addr:[{paddr:"Nashik",laddr:"Pune"}]})
+
+db.employee.update({cname:"Google"},{$set:{salary:50000}})
+
+db.employee.find({cname:{$ne:"tcs"}})
+
+db.employee.update({cname:"tcs"},{$set:{salary:2000}})
+
+db.employee.find({exp:["java","mongo"]}).pretty()
+
+db.employee.remove({cname:"tcs"})
