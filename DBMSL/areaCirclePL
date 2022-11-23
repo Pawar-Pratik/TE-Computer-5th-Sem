@@ -6,7 +6,7 @@ username:root
 pass:root
 
 set serveroutput on
-create table area(radius number(10),area number(14));
+create table area(radius number(10),area number(14,2));
 
 
 PL/SQL code->
