@@ -1,0 +1,28 @@
+terminal ->
+sudo su
+Pass@123
+sqlplus
+username:root
+pass:root
+
+set serveroutput on
+create table area(radius number(10),area number(14));
+
+
+PL/SQL code->
+
+declare
+pi constant number(5,2):=3.14;
+rad number(10);
+area number(15,2);
+begin
+rad:=5;
+while rad<=9
+loop
+area:=pi*(rad*rad);
+insert into area values(rad, area);
+rad:=rad+1;
+end loop;
+end;
+
+select * from area
